@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from 'react'
-import classes from './Modal.module.css'
+import classes from  './styles/Modal.module.css'
 import { XCircle } from 'phosphor-react'
 import { useContext } from 'react'
 import { ProductContext } from './product-context'

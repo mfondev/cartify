@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import homeImage from '/images/bag-img.jpg'
-import classes from './Header.module.css'
+import classes from './styles/Header.module.css'
+
 import { ShoppingCart, User } from 'phosphor-react'
 import { Link } from 'react-router-dom'
 import Products from './Product'
