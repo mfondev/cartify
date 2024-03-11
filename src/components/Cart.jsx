@@ -18,7 +18,6 @@ export default function Cart() {
     getSubTotal
   } = useContext(ProductContext)
   const cart = addedItems.length === 0
-  // console.log(addedItems)
   const subtotal = getSubTotal()
   return (
     <>
@@ -39,7 +38,7 @@ export default function Cart() {
               return (
                 <ul key={item.id} className={classes.cartItem}>
                   <img src={item.image} alt='' />
-                  <div>
+                  <div className={classes.items}>
                     <h1>{item.title}</h1>
                     <p>${item.price}</p>
                     <div className={classes.countHandler}>

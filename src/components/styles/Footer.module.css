@@ -61,3 +61,32 @@ text-align: center;
 color: #fff;
 margin: 0;
 }
+
+@media screen and (max-width:768px) {
+  .footer{
+ display: flex;
+ flex-direction: column;
+}
+.footerOrgInfo{
+ width: 60%;
+}
+
+.Links{
+ display: flex;
+ flex-direction: column;
+}
+
+.footerLinks{
+  margin: 0;
+  padding: 0;
+}
+.rights{
+  justify-content: center;
+}
+}
+
+@media screen and (max-width:468px) {
+.footerCopyRights{
+  display: none;
+}
+}

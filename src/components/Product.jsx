@@ -10,13 +10,19 @@ export default function Products() {
   const [selectedProduct, setSelectedProduct] = useState([])
   const [openModal, setOpenModal] = useState(false)
   const [displayedProducts, setDisplayedProducts] = useState(10)
+  const [seeMoreClicked, setSeeMoreClicked] = useState(false)
 
   function handleSelectedProduct(select) {
     setSelectedProduct(select)
     setOpenModal(true)
   }
+  const handleSeeLess = () => {
+    setSeeMoreClicked(false)
+    setDisplayedProducts(10) 
+  }
 
   const handleSeeMore = () => {
+    setSeeMoreClicked(true)
     setDisplayedProducts(displayedProducts + 10)
   }
 
@@ -75,12 +81,25 @@ export default function Products() {
                 </div>
               </div>
             ))
-          ) : (<p>Loading...</p>
+          ) : (
+            <p>Loading...</p>
           )}
         </div>
       </div>
-      {(products ?? []).length > displayedProducts && (
-        <div className={classes.centerButton}><button className={classes.seeMoreBttn} onClick={handleSeeMore}>See More</button></div>
+      {(products ?? []).length > displayedProducts && !seeMoreClicked && (
+        <div className={classes.centerButton}>
+          <button className={classes.seeMoreBttn} onClick={handleSeeMore}>
+            See More
+          </button>
+        </div>
+      )}
+
+      {seeMoreClicked && (
+        <div className={classes.centerButton}>
+          <button className={classes.seeMoreBttn} onClick={handleSeeLess}>
+            See Less
+          </button>
+        </div>
       )}
     </>
   )

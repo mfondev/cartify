@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import homeImage from '/images/bag-img.jpg'
+import homeImage from '/images/home-img.jpg'
+import user from '/images/user.svg'
 import classes from './styles/Header.module.css'
-
-import { ShoppingCart, User } from 'phosphor-react'
+import { ShoppingCart, MagnifyingGlass } from 'phosphor-react'
 import { Link } from 'react-router-dom'
 import Products from './Product'
 import { useContext } from 'react'
@@ -13,7 +13,7 @@ let minute = new Date().getMinutes()
 
 export default function Header() {
   const { addedItems } = useContext(ProductContext)
-
+  
   return (
     <>
       <p className={classes.top}>
@@ -25,26 +25,26 @@ export default function Header() {
       <div className={classes['nav-img']}>
         <img src={homeImage} alt='homeImage' className={classes.homeImage} />
         <nav className={classes.nav}>
-          <ul className={classes['nav-links']}>
             <Link to='/' className={classes.Link}>
               <h1>Cartify</h1>
             </Link>
-            <li>Categories</li>
+          <ul className={classes['nav-links']}>
             <li>Products</li>
             <li>Store</li>
+            <li>Categories</li>
+            <li>Our Story</li>
           </ul>
-          <ul className={classes['nav-links']}>
-            <li>Search</li>
+          <ul className={classes.userInfo}>
+            <MagnifyingGlass size={26} color='#000' />
             <Link to='/cart' className={classes.Link}>
-              <ShoppingCart size={14} /> Cart({addedItems.length})
+              <ShoppingCart size={26} />
+              <p>{addedItems.length}</p>
             </Link>
-            <li>
-              <User size={14} /> Login
-            </li>
+            <img src={user} alt="" className={classes.user}/>
           </ul>
         </nav>
         <div className={classes['jolt-info']}>
-          <h1>CARTIFY'S SPORT PROJECT</h1>
+          <h1>CARTIFY'S HEADLINE PROJECT</h1>
           <p>
             Introducing our latest collection, designed specifically for outdoor
             enthusiasts. Feature a range of performance outwear with a range of
