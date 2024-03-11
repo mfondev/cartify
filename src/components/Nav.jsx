@@ -1,8 +1,6 @@
 import React from 'react'
 import user from '/images/user.svg'
 import { ShoppingCart,MagnifyingGlass } from 'phosphor-react'
-
-
 import classes from './styles/Nav.module.css'
 import { Link } from 'react-router-dom'
 import { useContext } from 'react'

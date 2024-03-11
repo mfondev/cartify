@@ -71,6 +71,7 @@ background-color: #fff;
   padding: 5px 15px 5px 15px;
   border-radius: 5px;
   font-size: 18px;
+  color: #000;
 }
 
 .seeMoreBttn:hover {
@@ -108,3 +109,14 @@ background-color: #fff;
   padding: 30px;
 }
 }
+
+@media screen and (max-width:380px) {
+ .product-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+
+}
+}
+

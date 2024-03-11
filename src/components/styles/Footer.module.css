@@ -68,7 +68,7 @@ margin: 0;
  flex-direction: column;
 }
 .footerOrgInfo{
- width: 60%;
+ width: 80%;
 }
 
 .Links{
@@ -88,5 +88,8 @@ margin: 0;
 @media screen and (max-width:468px) {
 .footerCopyRights{
   display: none;
+}
+.copyRights{
+  margin-top: 20px;
 }
 }
