@@ -2,18 +2,40 @@ import Cart from './components/Cart'
 import Footer from './components/Footer'
 import Header from './components/Header'
 import { ProductContextProvider } from './components/product-context'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import NotFoundPage from './components/NotFoundPage'
+import Modal from './components/Modal'
+import SelectedContextProvider from './components/context'
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Header />,
+    errorElement: <NotFoundPage />,
+    // children: [
+    //   {
+    //     path: ':productId',
+    //     element: <Modal />,
+    //   },
+    // ],
+  },
+  {
+    path: '/cart',
+    element: <Cart />,
+  },
+  {
+    path: ':productId',
+    element: <Modal />,
+  },
+])
 function App() {
   return (
     <>
       <ProductContextProvider>
-        <Router>
-          <Routes>
-            <Route path='/' element={<Header />} />
-            <Route path='/cart' element={<Cart />} />
-          </Routes>
-        </Router>
-        <Footer />
+        <SelectedContextProvider>
+          <RouterProvider router={router} />
+          <Footer />
+        </SelectedContextProvider>
       </ProductContextProvider>
     </>
   )

@@ -1,19 +1,21 @@
-
-.Link h1{
-color: #000;
- }
-
- .Links li{
-  color: #000;
- }
-.nav {
-  /* position: absolute; */
+* {
+  padding: 0;
   margin: 0;
+  box-sizing: border-box;
+}
+.Link h1 {
+  color: #000;
+}
+
+.Links li {
+  color: #000;
+}
+.nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* top: 10px; */
   width: 100%;
+  padding: 1% 2%;
 }
 
 .nav-img {
@@ -35,13 +37,13 @@ color: #000;
   text-decoration: none;
 }
 
-.user{
+.user {
   width: 30px;
   margin-left: 10px;
   cursor: pointer;
 }
 
-.userInfo{
+.userInfo {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -56,18 +58,29 @@ color: #000;
   color: #000; /* Adjust the color as needed */
 }
 
-/* Style for the p element */
 .Link p {
   position: absolute;
-  top: -25px; 
-  right: -10px; /* Adjust the right position as needed */
+  top: -10px;
+  right: -10px;
   background-color: red;
   color: #000;
-  padding: 2px 5px; 
+  padding: 2px 5px;
   border-radius: 25px;
 }
 
-@media screen and (max-width:468px) {
+.user {
+  width: 30px;
+  cursor: pointer;
+  margin-left: 2px;
+}
+
+.icons {
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+}
+
+/* @media screen and (max-width:468px) {
   .nav-links{
     display: none;
   }
@@ -76,4 +89,37 @@ color: #000;
   }
 
   
+} */
+
+@media screen and (max-width: 468px) {
+  .nav-links {
+    display: none;
+  }
+  .Link h1 {
+    font-size: 20px;
+  }
+  .jolt-info {
+    display: none;
+  }
+  .top {
+    font-size: 12px;
+    text-align: center;
+    padding: 2%;
+  }
+  .userInfo {
+    gap: 5px;
+  }
+  .user {
+    width: 15px;
+  }
+  .icons {
+    width: 15px;
+    height: 15px;
+  }
+  .Link p {
+    top: -7px;
+    right: -6px;
+    font-size: 10px;
+    padding: 1px 3px;
+  }
 }

@@ -13,21 +13,23 @@ let minute = new Date().getMinutes()
 
 export default function Header() {
   const { addedItems } = useContext(ProductContext)
-  
+
   return (
     <>
-      <p className={classes.top}>
-        New Season Coming! Discount 10% for all products! Check out now{' '}
-        <span className={classes.time}>
-          {hour}:{String(minute).padStart(2, '0')}
-        </span>
-      </p>
+      <div className={classes.top}>
+        <p>
+          New Season Coming! Discount 10% for all products! Check out now{' '}
+          <span className={classes.time}>
+            {hour}:{String(minute).padStart(2, '0')}
+          </span>
+        </p>
+      </div>
       <div className={classes['nav-img']}>
         <img src={homeImage} alt='homeImage' className={classes.homeImage} />
         <nav className={classes.nav}>
-            <Link to='/' className={classes.Link}>
-              <h1>Cartify</h1>
-            </Link>
+          <Link to='/' className={classes.Link}>
+            <h1>Cartify</h1>
+          </Link>
           <ul className={classes['nav-links']}>
             <li>Products</li>
             <li>Store</li>
@@ -35,23 +37,14 @@ export default function Header() {
             <li>Our Story</li>
           </ul>
           <ul className={classes.userInfo}>
-            <MagnifyingGlass size={26} color='#000' />
+            <MagnifyingGlass className={classes.icons} />
             <Link to='/cart' className={classes.Link}>
-              <ShoppingCart size={26} />
+              <ShoppingCart className={classes.icons} />
               <p>{addedItems.length}</p>
             </Link>
-            <img src={user} alt="" className={classes.user}/>
+            <img src={user} alt='' className={classes.user} />
           </ul>
         </nav>
-        <div className={classes['jolt-info']}>
-          <h1>CARTIFY'S HEADLINE PROJECT</h1>
-          <p>
-            Introducing our latest collection, designed specifically for outdoor
-            enthusiasts. Feature a range of performance outwear with a range of
-            bold and vibrant colors and patterns to choose from.
-          </p>
-          <button className={classes.shopNowBttn}>Shop Now</button>
-        </div>
       </div>
       <Products />
     </>

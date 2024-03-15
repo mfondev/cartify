@@ -22,12 +22,14 @@ export default function Cart() {
   return (
     <>
       <div>
-        <p className={classes.top}>
-          New Season Coming! Discount 10% for all products! Check out now{' '}
-          <span className={classes.time}>
-            {hour}:{String(minute).padStart(2, '0')}
-          </span>
-        </p>
+        <div className={classes.top}>
+          <p>
+            New Season Coming! Discount 10% for all products! Check out now{' '}
+            <span className={classes.time}>
+              {hour}:{String(minute).padStart(2, '0')}
+            </span>
+          </p>
+        </div>
         <Nav />
       </div>
       {!cart ? (

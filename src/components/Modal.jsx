@@ -1,16 +1,20 @@
-import React, { useCallback, useState } from 'react'
-import classes from  './styles/Modal.module.css'
-import { XCircle } from 'phosphor-react'
-import { useContext } from 'react'
+import React, { useContext } from 'react'
+import classes from './styles/Header.module.css'
 import { ProductContext } from './product-context'
-import {CheckCircle} from 'phosphor-react';
+import { CheckCircle, XCircle } from 'phosphor-react'
+import { useParams } from 'react-router-dom'
+import { selectedContext } from './context'
 
-export default function Modal({ setOpenModal, onSelect, product }) {
-  const { id, title, price, description, image, category, rating } = product
-  const { rate } = rating
+export default function Modal() {
+  const {selectedProduct,handleSelectedProduct} = useContext(selectedContext)
+
+  const { id, title, price, description, image, category, rating } =
+    selectedProduct
+  const { rate } = rating || {}
   const { handleAddToCart, getQuantity, addedCart } = useContext(ProductContext)
-
- 
+  const params = useParams()
+  console.log(selectedProduct);
+console.log(id);
   return (
     <>
       <div className={classes['modal-overlay']}>
@@ -26,13 +30,14 @@ export default function Modal({ setOpenModal, onSelect, product }) {
             key={id}
             className={classes['modal-item']}
             onClick={() => {
-              onSelect(product)
+              handleSelectedProduct(selectedProduct)
             }}
           >
             <div className={classes['image-container']}>
               <img src={image} alt='' className={classes['modal-image']} />
             </div>
             <div>
+              <p>{params.productId}</p>
               <p>Category: {category}</p>
               <h1 className={classes['modal-title']}>{title}</h1>
               <p>${price}</p>
@@ -40,10 +45,10 @@ export default function Modal({ setOpenModal, onSelect, product }) {
               <p>Rating: {rate}</p>
               <div>
                 <button
-                  onClick={() => handleAddToCart(product)}
+                  onClick={() => handleAddToCart(selectedProduct)}
                   className={classes.addToCartBttn}
                 >
-                  Add to Cart ({getQuantity(product.id)})
+                  Add to Cart ({getQuantity(selectedProduct.id)})
                 </button>
               </div>
             </div>

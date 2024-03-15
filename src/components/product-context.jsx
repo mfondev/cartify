@@ -1,6 +1,5 @@
 import React from 'react'
 import { useState } from 'react'
-
 import { createContext } from 'react'
 export const ProductContext = createContext()
 
@@ -68,16 +67,6 @@ export const ProductContextProvider = ({ children }) => {
   }
 
   const getSubTotal = () => {
-    // setAddedItems(prev => {
-    //   let itemTotal = 0
-    //   for (const item in prev) {
-    //     if (prev) {
-    //       // const element = object[item];
-    //       let itemTotal = prev.price * prev.quantity
-    //     }
-    //   }
-    //   return itemTotal
-    // })
     return addedItems.reduce((total, item) => {
       return total + item.price * item.quantity
     },0)

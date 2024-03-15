@@ -8,6 +8,7 @@
  display: flex;
  align-items: start;
  justify-content: space-between;
+ gap: 10px;
 }
 
 .footerOrgInfo h1{
@@ -22,6 +23,7 @@ margin: 0;
  display: flex;
  align-items: start;
  justify-content: space-between;
+ gap: 30px;
 }
 .footerLinks{
  margin-top: 0;
@@ -74,6 +76,7 @@ margin: 0;
 .Links{
  display: flex;
  flex-direction: column;
+ gap: 0;
 }
 
 .footerLinks{
