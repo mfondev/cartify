@@ -25,7 +25,7 @@ export const ProductContextProvider = ({ children }) => {
 
     setTimeout(() => {
       setAddedCart(false)
-    }, 2000)
+    }, 3000)
   }
 
   const handleRemoveFromCart = (itemId) => {

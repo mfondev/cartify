@@ -6,8 +6,6 @@ import { Link, Outlet } from 'react-router-dom'
 // import { ModalContext } from './components/context'
 import SelectedContextProvider, { selectedContext } from './context'
 
-
-
 export default function Products() {
   const url = 'https://fakestoreapi.com/products'
   const [products, setProducts] = useState(null)
@@ -16,8 +14,7 @@ export default function Products() {
   const [displayedProducts, setDisplayedProducts] = useState(10)
   const [seeMoreClicked, setSeeMoreClicked] = useState(false)
   const [error, setError] = useState([])
-  const {handleSelectedProduct} = useContext(selectedContext) 
-  
+  const { handleSelectedProduct } = useContext(selectedContext)
 
   // function handleSelectedProduct(select) {
   //   setSelectedProduct(select)
@@ -52,15 +49,6 @@ export default function Products() {
 
   return (
     <SelectedContextProvider>
-      {/* {openModal && (
-        <Modal
-          openModal={openModal}
-          setOpenModal={setOpenModal}
-          onSelect={handleSelectedProduct}
-          product={selectedProduct}
-        />
-      )} */}
-
       <div className={classes.header}>
         <h1>NEW ARRIVALS</h1>
         <p>
@@ -91,7 +79,7 @@ export default function Products() {
               </Link>
             ))
           ) : (
-            <p>Loading...{error}</p>
+            <p>Loading... {error ? 'Please check your Internet connection' : ''}</p>
           )}
         </div>
       </div>
@@ -99,7 +87,7 @@ export default function Products() {
       {(products ?? []).length > displayedProducts && !seeMoreClicked && (
         <div className={classes.centerButton}>
           <button className={classes.seeMoreBttn} onClick={handleSeeMore}>
-            See More
+            See All
           </button>
         </div>
       )}

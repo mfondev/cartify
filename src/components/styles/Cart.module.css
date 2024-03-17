@@ -1,4 +1,4 @@
-*{
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
@@ -28,7 +28,6 @@
 }
 .cartEmpty {
   display: flex;
-  /* flex-direction: column; */
   justify-content: center;
   align-items: center;
   text-align: center;
@@ -52,22 +51,25 @@
   width: 200px;
   height: 200px;
 }
-
-.cartItem .description {
-  width: 100%;
-  font-size: 30px;
+.items{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
+
 .countHandler {
-  margin-bottom: 5px;
+  margin: 4px 0;
 }
 .countHandler input {
   width: 40px;
   text-align: center;
   font-weight: bolder;
 }
+.countHandler button {
+  padding: 1px 2px;
+}
 .checkoutContainer {
   display: flex;
-  /* flex-direction: column; */
   align-items: center;
   justify-content: center;
 }
@@ -84,13 +86,12 @@
 }
 
 .removeCartBttn {
+  width: 20px;
   background-color: transparent;
   border: 2px solid rgb(19, 19, 19);
   min-width: 100px;
   padding: 5px 10px 5px 10px;
   border-radius: 5px;
-  font-size: 16px;
-  margin-top: 10px;
 }
 
 .removeCartBttn:hover {
@@ -98,6 +99,8 @@
   color: white;
   cursor: pointer;
 }
+
+
 
 @media screen and (max-width: 468px) {
   .top {
@@ -107,7 +110,7 @@
     width: 90%;
     padding: 0 10px;
   }
-  .cartItem img{
+  .cartItem img {
     width: 100px;
     height: 100px;
   }
@@ -115,7 +118,7 @@
   .items h1 {
     font-size: 16px;
   }
-   .top {
+  .top {
     font-size: 12px;
     text-align: center;
     padding: 2%;

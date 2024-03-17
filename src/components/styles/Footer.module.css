@@ -68,6 +68,7 @@ margin: 0;
   .footer{
  display: flex;
  flex-direction: column;
+ padding: 2%;
 }
 .footerOrgInfo{
  width: 80%;
@@ -86,13 +87,14 @@ margin: 0;
 .rights{
   justify-content: center;
 }
+.copyRights{
+  margin: 20px 0;
+}
 }
 
 @media screen and (max-width:468px) {
 .footerCopyRights{
   display: none;
 }
-.copyRights{
-  margin-top: 20px;
-}
+
 }

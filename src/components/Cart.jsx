@@ -64,7 +64,7 @@ export default function Cart() {
                       onClick={() => handleRemoveFromCart(item.id)}
                       className={classes.removeCartBttn}
                     >
-                      Remove Item
+                      remove item
                     </button>
                   </div>
                 </ul>
