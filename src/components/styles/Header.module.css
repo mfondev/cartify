@@ -31,7 +31,7 @@
   justify-content: space-between;
   top: 0px;
   width: 100%;
-  padding: 1% 2%;
+  padding: 2%;
 }
 
 .nav-img {
@@ -141,9 +141,12 @@
   .homeImage {
     height: 100%;
   }
+  .userInfo{
+    gap: 10px;
+  }
   .nav-links {
-    margin: 10px;
-    padding: 0;
+    /* margin: 10px; */
+    /* padding: 0; */
   }
   .jolt-info h1 {
     font-size: 24px;
@@ -173,16 +176,16 @@
     text-align: center;
     padding: 2%;
   }
-  .userInfo {
+  /* .userInfo {
     gap: 5px;
-  }
+  } */
   .user {
-    width: 15px;
+    /* width: 15px; */
   }
-  .icons {
+  /* .icons {
     width: 15px;
     height: 15px;
-  }
+  } */
   .Link p {
     top: -7px;
     right: -6px;

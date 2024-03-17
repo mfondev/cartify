@@ -115,10 +115,20 @@
     gap: 10px;
   }
   .product img {
-    width: 150px;
-    height: 200px;
+    width: 120px;
+    height: 150px;
     padding: 10px;
     background: none;
+  }
+  .header h1{
+    font-size: 24px;
+  }
+  .header p{
+    font-size: 12px;
+  }
+  .seeMoreBttn{
+    font-size: 12px;
+    padding: 4px 0px;
   }
 }
 

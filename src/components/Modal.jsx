@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext,useEffect } from 'react'
 import classes from './styles/Modal.module.css'
 import { ProductContext } from './product-context'
 import { CheckCircle, XCircle } from 'phosphor-react'
@@ -16,6 +16,9 @@ export default function Modal() {
   const { rate } = rating || {}
   const { handleAddToCart, getQuantity, addedCart } = useContext(ProductContext)
   const params = useParams()
+    useEffect(() => {
+      window.scrollTo(0, 0)
+    }, [])
   return (
     <>
       {addedCart && (

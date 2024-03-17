@@ -15,7 +15,7 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding: 1% 2%;
+  padding: 2%;
 }
 
 .nav-img {
@@ -87,7 +87,9 @@
   .jolt-info{
     display: none;
   }
-
+.userInfo{
+  gap: 10px;
+}
   
 }
 
@@ -106,16 +108,16 @@
     text-align: center;
     padding: 2%;
   }
-  .userInfo {
+  /* .userInfo {
     gap: 5px;
   }
   .user {
     width: 15px;
-  }
-  .icons {
+  } */
+  /* .icons {
     width: 15px;
     height: 15px;
-  }
+  } */
   .Link p {
     top: -7px;
     right: -6px;

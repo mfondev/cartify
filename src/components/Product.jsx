@@ -83,7 +83,6 @@ export default function Products() {
           )}
         </div>
       </div>
-      {/* <Outlet /> */}
       {(products ?? []).length > displayedProducts && !seeMoreClicked && (
         <div className={classes.centerButton}>
           <button className={classes.seeMoreBttn} onClick={handleSeeMore}>
