@@ -79,7 +79,7 @@ export default function Products() {
               </Link>
             ))
           ) : (
-            <p>Loading... {error ? 'Please check your Internet connection' : ''}</p>
+            <p className={classes.errorMessage}>Loading... {error ? 'Load failed, Please check your Internet connection' : ''}</p>
           )}
         </div>
       </div>
@@ -87,7 +87,7 @@ export default function Products() {
       {(products ?? []).length > displayedProducts && !seeMoreClicked && (
         <div className={classes.centerButton}>
           <button className={classes.seeMoreBttn} onClick={handleSeeMore}>
-            See All
+            see all
           </button>
         </div>
       )}
@@ -95,7 +95,7 @@ export default function Products() {
       {seeMoreClicked && (
         <div className={classes.centerButton}>
           <button className={classes.seeMoreBttn} onClick={handleSeeLess}>
-            See Less
+            see less
           </button>
         </div>
       )}

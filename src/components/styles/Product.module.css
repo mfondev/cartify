@@ -89,7 +89,11 @@
   color: white;
   cursor: pointer;
 }
-
+.errorMessage{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 @media screen and (max-width: 768px) {
   .product-container {
     width: 100%;
