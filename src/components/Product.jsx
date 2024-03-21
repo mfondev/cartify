@@ -1,4 +1,4 @@
-import React, {useContext } from 'react'
+import React, { useContext } from 'react'
 import { useEffect, useState } from 'react'
 import classes from './styles/Product.module.css'
 import Modal from './Modal'
@@ -13,7 +13,6 @@ export default function Products() {
   const [seeMoreClicked, setSeeMoreClicked] = useState(false)
   const [error, setError] = useState([])
   const { handleSelectedProduct } = useContext(selectedContext)
-
 
   const handleSeeLess = () => {
     setSeeMoreClicked(false)
@@ -51,37 +50,33 @@ export default function Products() {
           you looking your best!
         </p>
       </div>
-      {/* <h1>Featured Product</h1> */}
 
-      {/* <div className={classes['image-container']}> */}
-        <div className={classes['product-container']}>
-          {products ? (
-            products.slice(0, displayedProducts).map((product) => (
-              // console.log(product),
-              <Link
-                className={classes.link}
-                key={product.id}
-                onClick={() => handleSelectedProduct(product)}
-                to={`/${product.id}`}
-              >
-                <div className={classes.product}>
-                  <img
-                    src={product.image}
-                    alt=''
-                    className={classes['product-img']}
-                  />
-                  {/* <div> */}
-                    <h1 className={classes['product-title']}>{product.title}</h1>
-                    <p className={classes.price}>${product.price}</p>
-                  {/* </div> */}
-                </div>
-              </Link>
-            ))
-          ) : (
-            <p className={classes.errorMessage}>Loading...</p>
-          )}
-        </div>
-      {/* </div> */}
+      <div className={classes['product-container']}>
+        {products ? (
+          products.slice(0, displayedProducts).map((product) => (
+            // console.log(product),
+            <Link
+              // className={classes.link}
+              className={classes.product}
+              key={product.id}
+              onClick={() => handleSelectedProduct(product)}
+              to={`/${product.id}`}
+            >
+              <img
+                src={product.image}
+                alt=''
+                className={classes['product-img']}
+              />
+              <div className={classes['product-text']}>
+                <h1 className={classes['product-title']}>{product.title}</h1>
+                <p className={classes.price}>${product.price}</p>
+              </div>
+            </Link>
+          ))
+        ) : (
+          <p className={classes.errorMessage}>Loading...</p>
+        )}
+      </div>
       {(products ?? []).length > displayedProducts && !seeMoreClicked && (
         <div className={classes.centerButton}>
           <button className={classes.seeMoreBttn} onClick={handleSeeMore}>

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import homeImage from '/images/cartHome-image.jpg'
 import user from '/images/user.svg'
 import classes from './styles/Header.module.css'
-import { ShoppingCart, MagnifyingGlass, MapPin,Hamburger } from 'phosphor-react'
+import { ShoppingCart, MagnifyingGlass, MapPin,List } from 'phosphor-react'
 import { Link } from 'react-router-dom'
 import Products from './Product'
 import { useContext } from 'react'
@@ -77,7 +77,7 @@ export default function Header() {
       </nav>
       <nav className={classes.mobileNav}>
         <div className={classes.mobileLogo}>
-          <Hamburger size={16} weight='fill' />
+          <List size={24} weight='bold' />
           <Link to='/' className={classes.Link}>
             <h1>Cartify</h1>
           </Link>
@@ -86,7 +86,7 @@ export default function Header() {
               <ShoppingCart className={classes.icons} />
               <p>{addedItems.length}</p>
             </Link>
-            {/* <img src={user} alt='' className={classes.user} /> */}
+          
           </ul>
         </div>
         <div className={classes.mobileSearch}>
