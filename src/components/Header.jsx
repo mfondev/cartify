@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import homeImage from '/images/cartHome-image.jpg'
 import user from '/images/user.svg'
 import classes from './styles/Header.module.css'
-import { ShoppingCart, MagnifyingGlass, MapPin,List } from 'phosphor-react'
+import { ShoppingCart, MagnifyingGlass, MapPin, List } from 'phosphor-react'
 import { Link } from 'react-router-dom'
 import Products from './Product'
 import { useContext } from 'react'
@@ -13,10 +13,9 @@ let minute = new Date().getMinutes()
 
 export default function Header() {
   const { addedItems } = useContext(ProductContext)
-
   const [country, setCountry] = useState('')
   const [state, setState] = useState('')
-  const [error, setError] = useState(null)
+  // const [error, setError] = useState(null)
 
   useEffect(() => {
     if (navigator.geolocation) {
@@ -86,7 +85,6 @@ export default function Header() {
               <ShoppingCart className={classes.icons} />
               <p>{addedItems.length}</p>
             </Link>
-          
           </ul>
         </div>
         <div className={classes.mobileSearch}>

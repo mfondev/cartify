@@ -103,21 +103,12 @@
   .jolt-info {
     display: none;
   }
-  .top {
-    font-size: 12px;
+   .top {
+    font-size: 14px;
     text-align: center;
     padding: 2%;
   }
-  /* .userInfo {
-    gap: 5px;
-  }
-  .user {
-    width: 15px;
-  } */
-  /* .icons {
-    width: 15px;
-    height: 15px;
-  } */
+
   .Link p {
     top: -7px;
     right: -6px;

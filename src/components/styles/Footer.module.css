@@ -1,100 +1,97 @@
-.footerContainer{
- padding: 2% 2% 1% ;
- background: #000;
- color: #757474;
- margin-top: 10%;
+.footerContainer {
+  padding: 2% 2% 1%;
+  background: #000;
+  color: #757474;
+  margin-top: 10%;
 }
-.footer{
- display: flex;
- align-items: start;
- justify-content: space-between;
- gap: 10px;
-}
-
-.footerOrgInfo h1{
-color: #fff;
-margin: 0;
-}
-.footerOrgInfo{
- width: 20%;
+.footer {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 10px;
 }
 
-.Links{
- display: flex;
- align-items: start;
- justify-content: space-between;
- gap: 30px;
+.footerOrgInfo h1 {
+  color: #fff;
+  margin: 0;
 }
-.footerLinks{
- margin-top: 0;
+.footerOrgInfo {
+  width: 20%;
 }
 
-.footerLinks h2{
- color: #fff;
- margin: 0;
- margin-bottom: 16px;
-
+.Links {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 30px;
 }
-.footerLinks li{
-list-style: none;
-margin-bottom: 10px;
-}
-
-.footerLogos{
- display: flex;
- gap: 20px;
-
+.footerLinks {
+  margin-top: 0;
 }
 
-.rights{
+.footerLinks h2 {
+  color: #fff;
+  margin: 0;
+  margin-bottom: 16px;
+}
+.footerLinks li {
+  list-style: none;
+  margin-bottom: 10px;
+}
+
+.footerLogos {
+  display: flex;
+  gap: 20px;
+}
+
+.rights {
   display: flex;
   justify-content: end;
 }
 
-.footerCopyRights{
- display: flex;
- color: #fff;
- gap: 30px;
- text-align: right;
+.footerCopyRights {
+  display: flex;
+  color: #fff;
+  gap: 30px;
+  text-align: right;
 }
 
-.copyRights{
-text-align: center;
-color: #fff;
-margin: 0;
-}
-
-@media screen and (max-width:768px) {
-  .footer{
- display: flex;
- flex-direction: column;
- padding: 2%;
-}
-.footerOrgInfo{
- width: 80%;
-}
-
-.Links{
- display: flex;
- flex-direction: column;
- gap: 0;
-}
-
-.footerLinks{
+.copyRights {
+  text-align: center;
+  color: #fff;
   margin: 0;
-  padding: 0;
-}
-.rights{
-  justify-content: center;
-}
-.copyRights{
-  margin: 20px 0;
-}
 }
 
-@media screen and (max-width:468px) {
-.footerCopyRights{
-  display: none;
+@media screen and (max-width: 768px) {
+  .footer {
+    display: flex;
+    flex-direction: column;
+    padding: 2%;
+  }
+  .footerOrgInfo {
+    width: 80%;
+  }
+
+  .Links {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .footerLinks {
+    margin: 0;
+    padding: 0;
+  }
+  .rights {
+    justify-content: center;
+  }
+  .copyRights {
+    margin: 20px 0;
+  }
 }
 
+@media screen and (max-width: 468px) {
+  .footerCopyRights {
+    display: none;
+  }
 }
