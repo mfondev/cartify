@@ -3,17 +3,14 @@
   margin: 0;
   box-sizing: border-box;
 }
-.homeImage {
-  width: 100%;
-  height: 100vh;
-  object-fit: cover;
-}
 
 .top {
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 1%;
+  background: #000;
+  color: #fff;
 }
 
 .time {
@@ -24,8 +21,11 @@
   margin-left: 5px;
 }
 
+.mobileNav{
+  display: none;
+}
+
 .nav {
-  position: absolute;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -36,6 +36,76 @@
 
 .nav-img {
   position: relative;
+}
+.location {
+  display: flex;
+  align-items: center;
+}
+.search {
+  height: 30px;
+  display: flex;
+  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 50px;
+  align-items: center;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+  background: #f0eeee;
+}
+
+.search:hover input {
+  width: 150px;
+}
+.input {
+  width: 0;
+  border: none;
+  outline: none;
+  margin-left: 2px;
+  transition: 0.8s;
+  background: transparent;
+}
+
+.searchIcon {
+  color: #000;
+}
+
+.homeInfo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  margin: 0 2%;
+  border-radius: 25px;
+  box-shadow: 1px 5px 15px rgba(0, 0, 0, 0.3);
+  padding: 2%;
+}
+
+.homeInfo h1 {
+  font-size: 42px;
+  display: flex;
+  flex-direction: column;
+}
+
+.buyNow {
+  background-color: #fff;
+  border: 1px solid rgb(19, 19, 19);
+  width: auto;
+  padding: 5px 15px 5px 15px;
+  border-radius: 5px;
+  font-size: 18px;
+  color: #000;
+  margin-top: 10px;
+  align-self: flex-start;
+}
+
+.buyNow:hover {
+  background-color: rgb(19, 19, 19);
+  color: white;
+  cursor: pointer;
+}
+
+.homeImage {
+  width: 700px;
+  object-fit: cover;
 }
 
 .nav-links {
@@ -57,8 +127,8 @@
 .userInfo {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 10px;
+  justify-content: space-between;
+  gap: 30px;
 }
 
 .Link {
@@ -80,7 +150,7 @@
 }
 
 .user {
-  width: 30px;
+  width: 40px;
   cursor: pointer;
 }
 
@@ -134,26 +204,37 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* margin-bottom: 200px; */
 }
-
+/* mobile */
+.mobileLogo{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2%;
+}
+.mobileSearch{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2%;
+}
 @media screen and (max-width: 768px) {
   .homeImage {
-    height: 100%;
+    width: 400px;
   }
-  .userInfo{
+
+  .homeInfo h1 {
+    font-size: 28px;
+  }
+  .userInfo {
     gap: 10px;
   }
-  .nav-links {
-    /* margin: 10px; */
-    /* padding: 0; */
-  }
+
   .jolt-info h1 {
     font-size: 24px;
   }
   .jolt-info p {
     width: 80%;
-    /* margin-bottom: 10px; */
     margin: 0;
   }
   .Link h1 {
@@ -164,6 +245,26 @@
 @media screen and (max-width: 468px) {
   .nav-links {
     display: none;
+  }
+
+  .homeInfo {
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 2%;
+  }
+  .homeImage {
+    width: 300px;
+    border-radius: 10px;
+  }
+  .nav {
+    display: none;
+  }
+  .mobileNav{
+  display: block;
+}
+
+  .user{
+    width: 30px;
   }
   .Link h1 {
     font-size: 20px;
@@ -176,21 +277,11 @@
     text-align: center;
     padding: 2%;
   }
-  /* .userInfo {
-    gap: 5px;
-  } */
-  .user {
-    /* width: 15px; */
-  }
-  /* .icons {
-    width: 15px;
-    height: 15px;
-  } */
-  .Link p {
-    top: -7px;
-    right: -6px;
-    font-size: 10px;
-  padding: 1px 3px;
 
+  .Link p {
+    top: -4px;
+    right: -2px;
+    font-size: 10px;
+    padding: 1px 3px;
   }
 }

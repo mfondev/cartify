@@ -1,7 +1,7 @@
-import React, { useContext,useEffect } from 'react'
+import React, { useContext, useEffect } from 'react'
 import classes from './styles/Modal.module.css'
 import { ProductContext } from './product-context'
-import { CheckCircle, XCircle } from 'phosphor-react'
+import { CheckCircle, Star, Truck } from 'phosphor-react'
 import { useParams } from 'react-router-dom'
 import { selectedContext } from './context'
 import Nav from './Nav'
@@ -11,14 +11,14 @@ let minute = new Date().getMinutes()
 
 export default function Modal() {
   const { selectedProduct, handleSelectedProduct } = useContext(selectedContext)
+  const { handleAddToCart, addedCart } = useContext(ProductContext)
   const { id, title, price, description, image, category, rating } =
     selectedProduct
   const { rate } = rating || {}
-  const { handleAddToCart, getQuantity, addedCart } = useContext(ProductContext)
-  const params = useParams()
-    useEffect(() => {
-      window.scrollTo(0, 0)
-    }, [])
+  // const params = useParams()
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
   return (
     <>
       {addedCart && (
@@ -38,7 +38,6 @@ export default function Modal() {
         </div>
         <Nav />
       </div>
-      {/*  */}
       <div className={classes.productContent}>
         <div
           key={id}
@@ -53,23 +52,33 @@ export default function Modal() {
             <p className={classes.category}>{category}</p>
             <h1 className={classes['modal-title']}>{title}</h1>
             <p className={classes.price}>${price}</p>
+            <div>
+              <Star size={16} weight='fill' />
+              <Star size={16} weight='fill' />
+              <Star size={16} weight='fill' />
+              <Star size={16} weight='fill' />
+              <Star size={16} weight='thin' />
+            </div>
             <p className={classes.info}>Description</p>
             <p className={classes.desc}>{description}</p>
             <p>
               <span className={classes.info}>Rating:</span> {rate}
             </p>
             <div>
-              <button
-                onClick={() => handleAddToCart(selectedProduct)}
-                className={classes.addToCartBttn}
-              >
-                add to cart
-              </button>
+            <button
+              onClick={() => handleAddToCart(selectedProduct)}
+              className={classes.addToCartBttn}
+              // disabled={add}
+            >
+              ADD TO CART
+            </button>
             </div>
+            <p className={classes.delivery}>
+              <Truck size={16} weight='fill' />
+                Free delivery on orders over $200.0
+            </p>
           </div>
         </div>
-
-        {/* {addedCart && <p className={classes.successMessage}>Added Successfully</p>} */}
       </div>
     </>
   )

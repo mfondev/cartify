@@ -58,15 +58,27 @@
 }
 
 .countHandler {
-  margin: 4px 0;
+  /* margin: 4px 0; */
+    display: flex;
+    align-self: flex-start;
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 50px;
+  align-items: center;
+  background: #f0eeee;
 }
 .countHandler input {
   width: 40px;
+   border: none;
+  outline: none;
+  background: transparent;
   text-align: center;
   font-weight: bolder;
 }
 .countHandler button {
-  padding: 1px 2px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
 }
 .checkoutContainer {
   display: flex;

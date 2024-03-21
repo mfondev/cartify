@@ -15,7 +15,8 @@ export default function Cart() {
     getQuantity,
     handleIncreaseQuantity,
     handleReduceQuantity,
-    getSubTotal
+    getSubTotal,
+    add
   } = useContext(ProductContext)
   const cart = addedItems.length === 0
   const subtotal = getSubTotal()
