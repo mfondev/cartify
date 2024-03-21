@@ -57,7 +57,7 @@ export default function Header() {
           <h1>Cartify</h1>
         </Link>
         <div className={classes.location}>
-          <MapPin size={16} weight='thin' />
+          <MapPin size={16} weight='fill' />
           <p>
             {state}, {country}
           </p>
