@@ -39,18 +39,19 @@ export default function Header() {
             <h1>Cartify</h1>
           </Link>
           <ul className={classes.userInfo}>
+            <div className={classes.search}>
+              <MagnifyingGlass className={classes.searchIcon} />
+              <input
+                type='text'
+                className={classes.input}
+                placeholder='search'
+              />
+            </div>
             <Link to='/cart' className={classes.Link}>
               <ShoppingCart className={classes.icons} />
               <p>{addedItems.length}</p>
             </Link>
           </ul>
-        </div>
-        <div className={classes.mobileSearch}>
-          <div className={classes.search}>
-            <MagnifyingGlass className={classes.searchIcon} />
-            <input type='text' className={classes.input} placeholder='search' />
-          </div>
-          <img src={user} alt='' className={classes.user} />
         </div>
       </nav>
       <div className={classes.homeArea}>

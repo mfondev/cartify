@@ -91,6 +91,9 @@
 }
 
 @media screen and (max-width: 468px) {
+  .footerContainer{
+    margin-top: 100px;
+  }
   .footerCopyRights {
     display: none;
   }
