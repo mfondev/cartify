@@ -57,6 +57,10 @@
   gap: 10px;
 }
 
+.items button{
+  color: #000;
+}
+
 .countHandler {
   /* margin: 4px 0; */
     display: flex;

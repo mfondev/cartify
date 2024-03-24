@@ -1,0 +1,139 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 5% 2%;
+  text-align: center;
+}
+
+/* .imageCollection {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin: 0 10%;
+  place-items: center;
+}
+
+.categoryImage {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+.category {
+  position: relative;
+}
+.desc {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  background: rgb(0, 0, 0, 0.5);
+  padding: 50px;
+}
+
+.desc p {
+  width: 90%;
+} */
+
+.imageCollection {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin: 0 5%;
+}
+
+.category {
+  position: relative;
+}
+
+.categoryImage {
+  width: 100%;
+  height: 400px;
+  display: block;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.desc {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  color: white;
+  border-radius: 10px;
+  text-align: center;
+  /* opacity: 0; 
+  transition: opacity 0.3s ease; */
+}
+
+.desc p {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  width: 60%;
+}
+
+.category:hover .desc p {
+  opacity: 1;
+}
+
+.desc h1 {
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+}
+
+.desc p {
+  font-size: 1rem;
+}
+
+.discover {
+  background-color: #fff;
+  border: 0 solid rgb(19, 19, 19);
+  padding: 5px 15px 5px 15px;
+  border-radius: 5px;
+  color: #000;
+  cursor: pointer;
+  margin-top: 5px;
+  font-size: 16px;
+}
+
+@media screen and (max-width: 768px) {
+  .desc p {
+    opacity: 1;
+    width: 80%;
+  }
+}
+@media screen and (max-width: 468px) {
+  .imageCollection {
+    grid-template-columns: 1fr;
+  }
+  .desc p {
+    opacity: 1;
+    transition: opacity 0.3s ease;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .categoryImage {
+    height: 200px;
+  }
+}

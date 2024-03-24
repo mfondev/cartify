@@ -20,11 +20,11 @@
   margin: 2% 5%;
 }
 
-.product {
+/* .product {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  /* align-items: center; */
+
   text-decoration: none;
 }
 
@@ -46,6 +46,51 @@
   cursor: pointer;
   transform: scale(1.1);
 }
+*/
+/* .product {
+  display: flex;
+  align-items: center;
+} */
+.product {
+  text-decoration: none;
+}
+
+.productContent {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  padding: 10px; /* Adjust padding as needed */
+}
+
+.product-img {
+  width: 200px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 10px;
+  background-color: #f0f0f0;
+  background-color: transparent;
+  padding: 50px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.product-img {
+  transform: scale(1);
+  transition: transform 0.3s ease-in-out;
+}
+.product-img:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.productInfo {
+  display: flex;
+  justify-content: space-between;
+}
+
+.productInfo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 .product-text {
   margin-top: 15px;
 }
@@ -57,6 +102,11 @@
 
 .price {
   color: #9e9d9d;
+}
+
+.lock {
+  width: 30px;
+  color: #000;
 }
 
 .centerButton {
@@ -84,33 +134,38 @@
   align-items: center;
   justify-content: center;
 }
+
 @media screen and (max-width: 1024px) {
   .product-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
   }
 }
-@media screen and (max-width: 768px) {
+
+@media screen and (max-width: 868px) {
   .product-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
   }
 }
+
 @media screen and (max-width: 468px) {
-  .header{
+  .header {
     margin: 7% 2%;
   }
+  
   .product-container {
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
   }
   .product-img {
-    width: 180px;
+    width: 100%;
     height: 200px;
     padding: 20px;
   }
-
-
+.product-title {
+  width: 100%;
+}
   .seeMoreBttn {
     font-size: 12px;
     padding: 4px 0px;
@@ -123,9 +178,9 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
   }
-    .product-img {
-    width: 170px;
-    height: 190px;
-    padding: 20px;
+  .product-img {
+    width: 100%;
+    height: 170px;
+    padding: 15px;
   }
 }

@@ -1,45 +1,26 @@
 import React, { useEffect, useState } from 'react'
-import homeImage from '/images/cartHome-image.jpg'
+import homeImage from '/images/ski.jpg'
 import user from '/images/user.svg'
 import classes from './styles/Header.module.css'
-import { ShoppingCart, MagnifyingGlass, MapPin, List } from 'phosphor-react'
+import {
+  ShoppingCart,
+  MagnifyingGlass,
+  MapPin,
+  List,
+  UserCircle,
+  Bag,
+} from 'phosphor-react'
 import { Link } from 'react-router-dom'
 import Products from './Product'
 import { useContext } from 'react'
 import { ProductContext } from './product-context'
+import Categories from './Categories'
 
 let hour = new Date().getHours()
 let minute = new Date().getMinutes()
 
 export default function Header() {
   const { addedItems } = useContext(ProductContext)
-  const [country, setCountry] = useState('')
-  const [state, setState] = useState('')
-  // const [error, setError] = useState(null)
-
-  useEffect(() => {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        async (position) => {
-          try {
-            const response = await fetch(
-              `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${position.coords.latitude}&longitude=${position.coords.longitude}&localityLanguage=en`
-            )
-            const data = await response.json()
-            setCountry(data.countryName)
-            setState(data.principalSubdivision)
-          } catch (error) {
-            setError('Failed to fetch location data')
-          }
-        },
-        (error) => {
-          setError(error.message)
-        }
-      )
-    } else {
-      setError('Geolocation is not supported by this browser.')
-    }
-  }, [])
 
   return (
     <>
@@ -51,29 +32,6 @@ export default function Header() {
           </span>
         </p>
       </div>
-      {/* <div className={classes['nav-img']}> */}
-      <nav className={classes.nav}>
-        <Link to='/' className={classes.Link}>
-          <h1>Cartify</h1>
-        </Link>
-        <div className={classes.location}>
-          <MapPin size={16} weight='fill' />
-          <p>
-            {state}, {country}
-          </p>
-        </div>
-        <div className={classes.search}>
-          <MagnifyingGlass className={classes.searchIcon} />
-          <input type='text' className={classes.input} placeholder='search' />
-        </div>
-        <ul className={classes.userInfo}>
-          <Link to='/cart' className={classes.Link}>
-            <ShoppingCart className={classes.icons} />
-            <p>{addedItems.length}</p>
-          </Link>
-          <img src={user} alt='' className={classes.user} />
-        </ul>
-      </nav>
       <nav className={classes.mobileNav}>
         <div className={classes.mobileLogo}>
           <List size={24} weight='bold' />
@@ -95,15 +53,56 @@ export default function Header() {
           <img src={user} alt='' className={classes.user} />
         </div>
       </nav>
-      {/* </div> */}
-      <div className={classes.homeInfo}>
-        <h1>
-          Grab up to 20% off on Selected Categories
-          <span className={classes.buyNow}> Buy Now</span>
-        </h1>
-        <img src={homeImage} alt='homeImage' className={classes.homeImage} />
+      <div className={classes.homeArea}>
+        <img src={homeImage} alt='' className={classes.homeImage} />
+        <nav className={classes.nav}>
+          <div className={classes.orgInfo}>
+            <Link to='/' className={classes.Link}>
+              <h1>cartify</h1>
+            </Link>
+            <ul className={classes['nav-links']}>
+              <li>Categories</li>
+              <li>Collections</li>
+              <li>Store</li>
+              <li>Blog</li>
+            </ul>
+          </div>
+          <div className={classes.userInfo}>
+            <div className={classes.search}>
+              <MagnifyingGlass className={classes.searchIcon} />
+              <input
+                type='text'
+                className={classes.input}
+                placeholder='search'
+              />
+            </div>
+            {/* <Link to='/cart' className={classes.Link}>
+              <ShoppingCart className={classes.icons} />
+              <p>{addedItems.length}</p>
+            </Link> */}
+            <Link to='/cart' className={classes.cart}>
+              <Bag size={20} />
+              <p>Cart({addedItems.length})</p>
+            </Link>
+            <div className={classes.login}>
+              <UserCircle size={20} />
+              <p>Login</p>
+            </div>
+          </div>
+        </nav>
+        <div className={classes.cartify}>
+          <h1>Cartify Project</h1>
+          <p>
+            Discover endless possibilities with Cartify! Explore our curated
+            collections spanning fashion, electronics, and more for all your
+            shopping needs.
+          </p>
+          <p className={classes.shopNowBttn}>Shop Now</p>
+        </div>
       </div>
+
       <Products />
+      <Categories />
     </>
   )
 }
