@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import homeImage from '/images/ski.jpg'
 import user from '/images/user.svg'
-import classes from './styles/Header.module.css'
+import classes from '../styles/Header.module.css'
 import {
   ShoppingCart,
   MagnifyingGlass,
@@ -10,16 +10,19 @@ import {
   UserCircle,
   Bag,
 } from 'phosphor-react'
-import { Link } from 'react-router-dom'
-import Products from './Product'
+import { Link, useLoaderData,json } from 'react-router-dom'
 import { useContext } from 'react'
-import { ProductContext } from './product-context'
+import { ProductContext } from '../context/product-context'
 import Categories from './Categories'
+import ProductDetail from '../pages/ProductDetail'
 
 let hour = new Date().getHours()
 let minute = new Date().getMinutes()
 
-export default function Header() {
+export default function Home() {
+  const products = useLoaderData()
+  console.log(products);
+
   const { addedItems } = useContext(ProductContext)
 
   return (
@@ -47,7 +50,7 @@ export default function Header() {
                 placeholder='search'
               />
             </div>
-            <Link to='/cart' className={classes.Link}>
+            <Link to='cart' className={classes.Link}>
               <ShoppingCart className={classes.icons} />
               <p>{addedItems.length}</p>
             </Link>
@@ -77,11 +80,8 @@ export default function Header() {
                 placeholder='search'
               />
             </div>
-            {/* <Link to='/cart' className={classes.Link}>
-              <ShoppingCart className={classes.icons} />
-              <p>{addedItems.length}</p>
-            </Link> */}
-            <Link to='/cart' className={classes.cart}>
+
+            <Link to='cart' className={classes.cart}>
               <Bag size={20} />
               <p>Cart({addedItems.length})</p>
             </Link>
@@ -102,8 +102,24 @@ export default function Header() {
         </div>
       </div>
 
-      <Products />
+      <ProductDetail products={products} />
       <Categories />
     </>
   )
+}
+
+export const loader = async () => {
+  const url = 'https://fakestoreapi.com/products'
+  const response = await fetch(url)
+
+  if (!response.ok) {
+    throw json(
+      {
+        message: 'error in fetching products',
+      },
+      { status: 500 }
+    )
+  } else {
+    return response
+  }
 }

@@ -1,39 +1,48 @@
 import Cart from './components/Cart'
-import Footer from './components/Footer'
-import Header from './components/Header'
-import { ProductContextProvider } from './components/product-context'
+import Home ,{loader as EventLoader}from './components/Home'
+import { ProductContextProvider } from './context/product-context'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import NotFoundPage from './components/NotFoundPage'
-import Modal from './components/Modal'
-import SelectedContextProvider from './components/context'
+import SelectedContextProvider from './context/context'
 import Category from './components/Category'
-// import { categoryContext } from './components/Categories'
-import CategoryContextProvider from './components/categoryContext'
+import CategoryContextProvider from './context/categoryContext'
+import RootLayout from './pages/RootLayout'
+import Items,{loader as itemLoader} from './pages/Items'
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Header />,
+    element: <RootLayout />,
     errorElement: <NotFoundPage />,
-    // children: [
-    //   {
-    //     path: ':productId',
-    //     element: <Modal />,
-    //   },
-    // ],
+    children: [
+      {
+        index: true,
+        element: <Home />,
+        loader: EventLoader
+      },
+      {
+        path: 'cart',
+        element: <Cart />,
+      },
+     
+      {
+        path: ':productId',
+        element: <Items />,
+        loader: itemLoader
+      },
+      {
+        path: ':categoryId',
+        element: <Items />,
+      },
+      {
+        path: 'category',
+        element: <Category />,
+        // element: <Smcat />,
+        // loader: Sloader
+      },
+    ],
   },
-  {
-    path: '/cart',
-    element: <Cart />,
-  },
-  {
-    path: ':productId',
-    element: <Modal />,
-  },
-  {
-    path: '/category',
-    element: <Category />,
-  },
+
 ])
 function App() {
   return (
@@ -42,7 +51,6 @@ function App() {
         <SelectedContextProvider>
           <CategoryContextProvider>
             <RouterProvider router={router} />
-            <Footer />
           </CategoryContextProvider>
         </SelectedContextProvider>
       </ProductContextProvider>

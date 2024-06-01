@@ -1,8 +1,8 @@
 import React from 'react'
 import { useContext } from 'react'
-import { ProductContext } from './product-context'
+import { ProductContext } from '../context/product-context'
 import Nav from './Nav'
-import classes from './styles/Cart.module.css'
+import classes from '../styles/Cart.module.css'
 import { Link } from 'react-router-dom'
 
 let hour = new Date().getHours()
@@ -16,7 +16,7 @@ export default function Cart() {
     handleIncreaseQuantity,
     handleReduceQuantity,
     getSubTotal,
-    add
+    add,
   } = useContext(ProductContext)
   const cart = addedItems.length === 0
   const subtotal = getSubTotal()

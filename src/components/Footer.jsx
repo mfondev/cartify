@@ -5,7 +5,7 @@ import {
   TwitterLogo,
   YoutubeLogo,
 } from 'phosphor-react'
-import classes from './styles/Footer.module.css'
+import classes from '../styles/Footer.module.css'
 
 export default function Footer() {
   return (

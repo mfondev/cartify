@@ -6,9 +6,7 @@ export const ProductContext = createContext()
 export const ProductContextProvider = ({ children }) => {
   const [addedItems, setAddedItems] = useState([])
   const [addedCart, setAddedCart] = useState(false)
-  // const [add, setAdded] = useState(false)
 
-  // const [quantity, setQuantity] = useState(0)
 
   const handleAddToCart = (item) => {
     setAddedItems((prevItems) => {
@@ -84,7 +82,6 @@ export const ProductContextProvider = ({ children }) => {
     handleIncreaseQuantity,
     handleReduceQuantity,
     getSubTotal,
-    // add,
   }
   return (
     <ProductContext.Provider value={contextValue}>

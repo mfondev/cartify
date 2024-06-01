@@ -1,21 +1,18 @@
 import React, { useContext, useEffect } from 'react'
-import classes from './styles/Modal.module.css'
-import { ProductContext } from './product-context'
+import classes from '../styles/Modal.module.css'
+import { ProductContext } from '../context/product-context'
 import { CheckCircle, Star, Truck } from 'phosphor-react'
 import { useParams } from 'react-router-dom'
-import { selectedContext } from './context'
-import Nav from './Nav'
+import { selectedContext } from '../context/context'
+import Nav from '../components/Nav'
 
 let hour = new Date().getHours()
 let minute = new Date().getMinutes()
 
-export default function Modal() {
+export default function Product({ items }) {
   const { selectedProduct, handleSelectedProduct } = useContext(selectedContext)
   const { handleAddToCart, addedCart } = useContext(ProductContext)
-  const { id, title, price, description, image, category, rating } =
-    selectedProduct
-  const { rate } = rating || {}
-  // const params = useParams()
+
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
@@ -27,6 +24,7 @@ export default function Modal() {
           <p>Added Successfully</p>
         </div>
       )}
+
       <div>
         <div className={classes.top}>
           <p>
@@ -38,20 +36,21 @@ export default function Modal() {
         </div>
         <Nav />
       </div>
+
+      
       <div className={classes.productContent}>
         <div
-          key={id}
           className={classes.productItem}
           onClick={() => {
             handleSelectedProduct(selectedProduct)
           }}
         >
-          <img src={image} alt='' className={classes.productImage} />
+          <img src={items.image} alt='' className={classes.productImage} />
 
           <div className={classes.productDesc}>
-            <p className={classes.category}>{category}</p>
-            <h1 className={classes['modal-title']}>{title}</h1>
-            <p className={classes.price}>${price}</p>
+            <p className={classes.category}>{items.category}</p>
+            <h1 className={classes['modal-title']}>{items.title}</h1>
+            <p className={classes.price}>${items.price}</p>
             <div>
               <Star size={16} weight='fill' />
               <Star size={16} weight='fill' />
@@ -60,22 +59,21 @@ export default function Modal() {
               <Star size={16} weight='thin' />
             </div>
             <p className={classes.info}>Description</p>
-            <p className={classes.desc}>{description}</p>
+            <p className={classes.desc}>{items.description}</p>
             <p>
-              <span className={classes.info}>Rating:</span> {rate}
+              <span className={classes.info}>Rating:</span> {items.rating.rate}
             </p>
             <div>
-            <button
-              onClick={() => handleAddToCart(selectedProduct)}
-              className={classes.addToCartBttn}
-              // disabled={add}
-            >
-              ADD TO CART
-            </button>
+              <button
+                onClick={() => handleAddToCart(selectedProduct)}
+                className={classes.addToCartBttn}
+              >
+                ADD TO CART
+              </button>
             </div>
             <p className={classes.delivery}>
               <Truck size={16} weight='fill' />
-                Free delivery on orders over $200.0
+              Free delivery on orders over $200.0
             </p>
           </div>
         </div>
@@ -83,3 +81,6 @@ export default function Modal() {
     </>
   )
 }
+
+
+
